@@ -1,0 +1,19 @@
+<!-- Фреймы разделяют окно браузера на отдельные области, расположенные рядом друг с другом.
+Для создания фрейма используется тег <frameset>, который заменяет тег <body> в документе и применяется для разделения экрана на области. 
+Внутри данного тега находятся теги <frame>, которые указывают на HTML-документ, предназначенный для загрузки в область. -->
+
+<!-- Старьё, уже почти не используют!!! Вместо него используется iframe -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Фреймы</title>
+	</head>
+	<frameset rows="25%,75%">
+		<frame src="top.html" name="TOP" scrolling="no" noresize> <!-- Чтобы не появилась вертикальная полоса прокрутки, и пользователь не мог самостоятельно изменить размер верхнего фрейма, добавлены атрибуты scrolling="no" и noresize.  -->
+		<frameset cols="100,*"> <!-- левая колонка занимает 100 пикселов, а правая — оставшееся пространство, заданное символом звездочки. -->
+			<frame src="menu.html" name="MENU">
+			<frame src="content.html" name="CONTENT">
+		</frameset>
+	</frameset>
+</html>

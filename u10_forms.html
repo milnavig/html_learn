@@ -1,0 +1,110 @@
+<!-- Именно формы и обеспечивают получение данных от пользователя и передачу их на сервер, где они уже подвергаются анализу и обработке.
+Допускается использовать несколько форм на странице, но они не должны вкладываться одна в другую.
+В качестве обработчика формы обычно выступает программа, заданная атрибутом action тега <form>. 
+Программа может быть написана на любом серверном языке вроде PHP, Python, C# и др. -->
+
+<!-- Передача на сервер происходит двумя разными методами: GET и POST, для задания метода в теге <form> используется атрибут method, а его значениями выступают ключевые слова get и post. 
+Если атрибут method не задан, то по умолчанию данные отправляются на сервер методом GET.
+Какой метод используется легко определить по адресной строке браузера. 
+Если в ней появился вопросительный знак и адрес стал похож на этот, то это точно GET.
+http://www.google.ru/search?q=%D1%81%D0%B8%D1%81%D1%8C%D0%BA%D0%B8&ie=utf-8 
+Почти за весь ввод отвечает input -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Urok</title>
+	</head>
+	<body>
+		<form action="/example/handler.php">
+			<p><label for="lable">Login: </label><input name="login" id="lable"> <input type="password" name="pass"></p>
+			<p><input type="submit"></p>
+			<input maxlength="25" size="40" value="Вася">
+			<input type="password" maxlength="25" size="40" name="password">
+			<br>
+			<textarea name="comment"></textarea>
+			<!-- Кнопку на веб-странице можно создать двумя способами — с помощью тега <input> и тега <button>. -->
+			<input type="button" value=" Нажми меня нежно "> <!-- button не перезагружает страницу. Используют для JS. -->
+			<button> Кнопка </button>
+			<!-- Второй способ создания кнопки основан на использовании тега <button>. 
+			Он по своему действию напоминает результат, получаемый с помощью тега <input>. 
+			Но в отличие от него предлагает расширенные возможности по созданию кнопок. 
+			Например, на подобной кнопке можно размещать любые элементы HTML включая изображения и таблицы. -->
+			<button>Кнопка с рисунком</button><br>
+			<!-- Для отправки данных на сервер предназначена специальная кнопка Submit. -->
+			<input type="submit"><br>
+			<button type="submit">Надпись на кнопке</button><br>
+			
+			<input type="reset"><br>
+			<button type="reset">Надпись на кнопке</button><br>
+			
+			<!-- radiobutton -->
+			<p><input name="dzen" type="radio" value="nedzen"> один</p>
+			<p><input name="dzen" type="radio" value="dzen"> два</p>
+			<p><input name="dzen" type="radio" value="pdzen" checked> три</p>
+			
+			<!-- Флажки (жарг. чекбоксы) -->
+			<p><input type="checkbox" name="a" value="1417"> 1417</p>
+			<p><input type="checkbox" name="a" value="1680" checked> 1680</p>
+			<p><input type="checkbox" name="a" value="1883" checked> 1883</p>
+			<p><input type="checkbox" name="a" value="1934"> 1934</p>
+			<p><input type="checkbox" name="a" value="2010"> 2010</p>
+			
+			<!-- Поле со списком -->
+			<select атрибуты>
+				<option атрибуты>Пункт 1</option>
+				<option атрибуты>Пункт 2</option> 
+			</select>
+			
+			<!-- Скрытое поле -->
+			<input type="hidden" name="name" value="Vasya">
+			
+			<!-- Загрузка файлов -->
+			<input type="file" name="photo">
+			
+			<!-- Адрес электронной почты -->
+			<p>Email: <input type="email" name="login"></p>
+			<p>Пароль: <input type="password" name="pass"></p>
+			
+			<!-- Веб-адрес -->
+			<input type="url" placeholder="Сайт" name="site">
+			
+			<!-- Выбор цвета -->
+			<input type="color" name="bg" value="#ff0000">
+			
+			<!-- Ввод чисел -->
+			<input type="number" size="3" name="num" min="1" max="10" value="1">
+			
+			<!-- Ползунок -->
+			<input type="range" min="0" max="100" step="1" value="50"> 
+			
+			<!-- На сервер данные передаются в формате ГГГГ-ММ-ДД -->
+			<input type="date" name="calendar" value="2012-06-01" max="2012-06-04" min="2012-05-29">
+			<input type="month">
+			<input type="week">
+			
+			<!-- Дата и время -->
+			<input type="datetime" name="created">
+			
+			<!-- Поле для поиска -->
+			<input type="search" name="q" placeholder="Поиск по сайту">
+			
+			<!-- Поле для телефона -->
+			<input type="tel" name="tel" pattern="2[0-9]{3}-[0-9]{3}">
+			
+			<!-- Группирование элементов форм.
+			При создании сложной формы можно группировать некоторые элементы форм между собой, 
+			такое группирование удобно для пользователя и позволяет визуально отделить один логический блок от другого. -->
+			<fieldset>
+				<legend>Вход на сайт</legend>
+				<p>Логин: <input name="login" required></p>
+				<p>Пароль: <input type="password" name="pass" autofocus></p>
+				<p>Пароль: <input type="text" placeholder="qwerty" disabled></p>
+				<p><input type="submit" value="Вход"></p>
+			</fieldset>
+			
+			<progress min="0" max="100" value="35"></progress>
+		</form>
+	</body>
+<html>
